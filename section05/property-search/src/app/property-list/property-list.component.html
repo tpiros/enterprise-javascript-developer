@@ -1,0 +1,14 @@
+<div class="row card-group">
+  <div class="col-4" *ngFor="let property of properties">
+    <div class="card" style="width: 20rem;">
+      <div class="card-body">
+        <h4 class="card-title">{{ property.content.property.title }}</h4>
+        <p class="card-text">{{ property.content.property.description }}</p>
+        <a routerLink="{{ property.uri }}" class="btn btn-primary">View listing</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-12">
+  <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [maxSize]="5" [rotate]="true" [boundaryLinks]="false" (pageChange)="pageChanged($event)"></ngb-pagination>
+</div>

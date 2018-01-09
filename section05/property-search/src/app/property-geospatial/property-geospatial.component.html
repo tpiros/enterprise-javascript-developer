@@ -1,0 +1,31 @@
+<ngui-map zoom="13" center="England">
+  <drawing-manager
+        [drawingMode]="'marker'"
+        [drawingControl]="true"
+        [drawingControlOptions]="{
+          position: 2,
+          drawingModes: ['circle']
+         }"
+        [circleOptions]="{
+          fillColor: '#ffff00',
+          fillOpacity: 1,
+          strokeWeight: 2,
+          editable: false,
+          zIndex: 1
+        }"></drawing-manager>
+</ngui-map>
+
+<div class="row card-group">
+  <div class="col-4" *ngFor="let property of properties">
+    <div class="card" style="width: 20rem;">
+      <div class="card-body">
+        <h4 class="card-title">{{ property.content.property.title }}</h4>
+        <a routerLink="{{ property.uri }}" class="btn btn-primary">View listing</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12" *ngIf="properties">
+  <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [maxSize]="5" [rotate]="true" [boundaryLinks]="false" (pageChange)="pageChanged($event)"></ngb-pagination>
+</div>

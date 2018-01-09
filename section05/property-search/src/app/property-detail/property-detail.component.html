@@ -1,0 +1,7 @@
+<h1>{{ property?.content.property.title }}</h1>
+<p>{{ property?.content.property.description }}</p>
+<img src="{{ photo }}" width="300px">
+<ngui-map zoom="13" center="{{ property?.content.property.location.latitude }}, {{ property?.content.property.location.longitude }}">
+  <marker
+    [position]="[property?.content.property.location.latitude, property?.content.property.location.longitude]"></marker>
+</ngui-map>
